@@ -1,39 +1,41 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.EventSystems;
 
-public class PlayerRotate : MonoBehaviour, IBeginDragHandler, IDragHandler
+public class PlayerRotate : MonoBehaviour
 {
     [SerializeField] private float _speed;
+    [SerializeField] private float _rotateAngle;
 
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        if (Mathf.Abs(eventData.delta.x) > Mathf.Abs(eventData.delta.y))
-        {
-            if (eventData.delta.x > 0)
-            {
-                gameObject.transform.eulerAngles = new Vector3(0, 22, 0);
-            }
-            else
-            {
-                gameObject.transform.eulerAngles = new Vector3(0, -22, 0);
-            }
-        }
-    }
-
-    public void OnDrag(PointerEventData eventData)
-    {
-        
-    }
+    private bool _isTurn = false;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent<RoadTurnFoPlayer>(out RoadTurnFoPlayer turn))
-            StartCoroutine(Rotate(turn.Angle));
+            StartCoroutine(Rotate(turn.Angle, turn.Checkpoint));
     }
 
-    private IEnumerator Rotate(float turn)
+    public void TurnLeft()
     {
+        _isTurn = true;
+        StartCoroutine(Turn(-1));
+    }
+
+    public void TurnRight()
+    {
+        _isTurn = true;
+        StartCoroutine(Turn(1));
+    }
+
+    public void TurnIdentity()
+    {
+        _isTurn = false;
+        gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
+    }
+
+    private IEnumerator Rotate(float turn, Checkpoint checkpoint)
+    {
+        checkpoint.Open();
+
         if (turn == 0)
         {
             while (gameObject.transform.eulerAngles.y > turn)
@@ -58,5 +60,22 @@ public class PlayerRotate : MonoBehaviour, IBeginDragHandler, IDragHandler
             }
         }
         gameObject.transform.rotation = Quaternion.Euler(0, turn, 0);
+    }
+
+    private IEnumerator Turn(int direction)
+    {
+        while (_isTurn)
+        {
+            gameObject.transform.Rotate(Vector3.up * _speed * direction * Time.deltaTime);
+            if (gameObject.transform.rotation.eulerAngles.y >= _rotateAngle)
+            {
+                break;
+            }
+            else if(gameObject.transform.rotation.eulerAngles.y <= 360 - _rotateAngle)
+            {
+                break;
+            }
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
     }
 }
