@@ -1181,6 +1181,7 @@ MonoBehaviour:
   _player: {fileID: 227178834}
   _levels: 140000003200000050000000
   _text: {fileID: 1074131419}
+  _particleSystem: {fileID: 8429439512631143327, guid: 11a4c32bf791ae64b8550d2f19043afa, type: 3}
 --- !u!114 &227178837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1212,7 +1213,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

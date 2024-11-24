@@ -1,11 +1,13 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
 public class PlayerScore : MonoBehaviour
 {
     [SerializeField] private PlayerChangePerson _player;
     [SerializeField] private int[] _levels;
     [SerializeField] private TMP_Text _text;
+    [SerializeField] private GameObject _particleSystem;
 
     private int _score;
     private int _currentLevel;
@@ -39,7 +41,9 @@ public class PlayerScore : MonoBehaviour
                 _score = 0;
             }
             _text.text = _score.ToString();
-            Destroy(other.gameObject);
+            var particle = Instantiate(_particleSystem, other.gameObject.transform.position, Quaternion.identity);
+            Destroy(particle, 2);
+            other.gameObject.SetActive(false);
 
             if (_score >= _levels[_currentLevel])
             {
