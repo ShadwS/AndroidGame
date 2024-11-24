@@ -5,6 +5,7 @@ public class PlayerChangePerson : MonoBehaviour
     [SerializeField] private GameObject[] _players;
 
     private int _index = 0;
+    private Sounds _sounds;
 
     private void Awake()
     {
@@ -13,6 +14,11 @@ public class PlayerChangePerson : MonoBehaviour
         {
             _players[i].SetActive(false);
         }
+    }
+
+    private void Start()
+    {
+        _sounds = Sounds.Instance;
     }
 
     public void Change()
@@ -24,5 +30,7 @@ public class PlayerChangePerson : MonoBehaviour
         }
         _players[_index - 1].SetActive(false);
         _players[_index].SetActive(true);
+
+        _sounds.PlayChangePlayer();
     }
 }

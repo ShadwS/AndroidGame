@@ -9,18 +9,30 @@ public class PlayerScore : MonoBehaviour
 
     private int _score;
     private int _currentLevel;
+    private Sounds _sounds;
 
     private void Start()
     {
         _score = 0;
         _currentLevel = 0;
         _text.text = _score.ToString();
+
+        _sounds = Sounds.Instance;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent<Item>(out Item score))
         {
+            if (score.Value > 0)
+            {
+                _sounds.PlayCoin();
+            }
+            else
+            {
+                _sounds.PlayBottle();
+            }
+
             _score += score.Value;
             if (_score < 0)
             {

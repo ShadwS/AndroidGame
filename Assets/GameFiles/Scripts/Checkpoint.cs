@@ -2,7 +2,19 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    [SerializeField] private Animator _animator;
+    [SerializeField] protected Animator _animator;
+    [SerializeField] protected AudioClip _clip;
 
-    public void Open() => _animator.SetTrigger("Open");
+    protected Sounds _sounds;
+
+    protected void Start()
+    {
+        _sounds = Sounds.Instance;
+    }
+
+    public void Open()
+    {
+        _animator.SetTrigger("Open");
+        _sounds.PlayCheckpoint(_clip);
+    }
 }
