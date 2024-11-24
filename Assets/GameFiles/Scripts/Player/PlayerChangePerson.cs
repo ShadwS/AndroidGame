@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerChangePerson : MonoBehaviour
 {
     [SerializeField] private GameObject[] _players;
+    [SerializeField] private PlayerWalkSound _playerWalkSound;
 
     private int _index = 0;
     private Sounds _sounds;
@@ -32,5 +33,6 @@ public class PlayerChangePerson : MonoBehaviour
         _players[_index].SetActive(true);
 
         _sounds.PlayChangePlayer();
+        _playerWalkSound.ChangeAudioClip();
     }
 }

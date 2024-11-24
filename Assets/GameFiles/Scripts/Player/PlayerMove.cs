@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private float _speed;
+    [SerializeField] private PlayerWalkSound _playerWalk;
 
     private float _currentSpeed;
 
@@ -10,5 +11,9 @@ public class PlayerMove : MonoBehaviour
 
     private void Update() => gameObject.transform.Translate(-Vector3.forward * _currentSpeed * Time.deltaTime);
 
-    public void StartGame() => _currentSpeed = _speed;
+    public void StartGame()
+    {
+        _currentSpeed = _speed;
+        _playerWalk.Play();
+    }
 }
