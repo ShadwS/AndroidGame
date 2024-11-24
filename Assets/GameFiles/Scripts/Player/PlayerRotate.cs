@@ -1,9 +1,30 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
 
-public class PlayerRotate : MonoBehaviour
+public class PlayerRotate : MonoBehaviour, IBeginDragHandler, IDragHandler
 {
     [SerializeField] private float _speed;
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        if (Mathf.Abs(eventData.delta.x) > Mathf.Abs(eventData.delta.y))
+        {
+            if (eventData.delta.x > 0)
+            {
+                gameObject.transform.eulerAngles = new Vector3(0, 22, 0);
+            }
+            else
+            {
+                gameObject.transform.eulerAngles = new Vector3(0, -22, 0);
+            }
+        }
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        
+    }
 
     private void OnTriggerEnter(Collider other)
     {
