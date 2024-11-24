@@ -8,7 +8,7 @@ public class PlayerMove : MonoBehaviour
 
     private void Awake() => _currentSpeed = 0;
 
-    private void Update() => gameObject.transform.Translate(Vector3.right * _currentSpeed * Time.deltaTime);
+    private void Update() => gameObject.transform.Translate(-Vector3.forward * _currentSpeed * Time.deltaTime);
 
     public void StartGame() => _currentSpeed = _speed;
 }
