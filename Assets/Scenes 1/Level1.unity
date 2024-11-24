@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: eb09b09a476acc34dba29a75a0785a31, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -449,6 +449,9 @@ GameObject:
   - component: {fileID: 227178832}
   - component: {fileID: 227178831}
   - component: {fileID: 227178830}
+  - component: {fileID: 227178833}
+  - component: {fileID: 227178835}
+  - component: {fileID: 227178834}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -524,6 +527,48 @@ Transform:
   - {fileID: 331123397}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &227178833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227178829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2790f05287ad6c42bf3f2aa8bd8ddb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 10
+--- !u!114 &227178834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227178829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7db3b7906087c345a2dce8e85859df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _players:
+  - {fileID: 2020064903}
+  - {fileID: 881367624}
+  - {fileID: 1759670679}
+--- !u!114 &227178835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227178829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97eceb8fa9f11ed4c8a910e699697acf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 200
 --- !u!1 &279742763
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,6 +1191,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 33bbba6bc07665640b844e1b81d2e458, type: 3}
   m_PrefabInstance: {fileID: 854997211}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &881367624 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 954eeafaa8c0f414fbf22256be8a9bd9, type: 3}
+  m_PrefabInstance: {fileID: 1635608903}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1049872817
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1049872819}
+  - component: {fileID: 1049872818}
+  m_Layer: 0
+  m_Name: ClickToStartGame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1049872818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049872817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1e13870ce6a974ea8ad1adc9aa181c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 2020064904}
+  _player: {fileID: 227178833}
+  _canvasStart: {fileID: 0}
+  _canvasRun: {fileID: 0}
+--- !u!4 &1049872819
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049872817}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1064633477
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,7 +1340,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 1.3
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1300,13 +1398,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1140020615}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.85872465, y: -0.11850649, z: 0.23009454, w: 0.4422723}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 125.5, y: -30, z: 0}
 --- !u!1 &1211615952
 GameObject:
   m_ObjectHideFlags: 0
@@ -2162,6 +2260,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 33bbba6bc07665640b844e1b81d2e458, type: 3}
   m_PrefabInstance: {fileID: 1672464282}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1759670679 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: defdbaa6188a7aa4eabcaf57c0aef54d, type: 3}
+  m_PrefabInstance: {fileID: 331123396}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1762835630
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2228,6 +2331,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 33bbba6bc07665640b844e1b81d2e458, type: 3}
   m_PrefabInstance: {fileID: 1762835630}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2020064903 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 579d2dd4699e68f429cc1c5c80ddf4ff, type: 3}
+  m_PrefabInstance: {fileID: 82488878}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2020064904 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 579d2dd4699e68f429cc1c5c80ddf4ff, type: 3}
+  m_PrefabInstance: {fileID: 82488878}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2236,3 +2349,4 @@ SceneRoots:
   - {fileID: 1140020617}
   - {fileID: 19803511}
   - {fileID: 227178832}
+  - {fileID: 1049872819}
