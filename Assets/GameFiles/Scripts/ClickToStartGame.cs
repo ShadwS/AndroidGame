@@ -11,8 +11,8 @@ public class ClickToStartGame : MonoBehaviour
 
     private void Awake()
     {
-        //_canvasStart.SetActive(true);
-        //_canvasRun.SetActive(false);
+        _canvasStart.SetActive(true);
+        _canvasRun.SetActive(false);
     }
 
     private void Update()
@@ -25,7 +25,7 @@ public class ClickToStartGame : MonoBehaviour
     {
         _animator.SetTrigger("Start");
         _player.StartGame();
-        //_canvasStart.SetActive(false);
-        //_canvasRun.SetActive(true);
+        _canvasStart.SetActive(false);
+        _canvasRun.SetActive(true);
     }
 }
